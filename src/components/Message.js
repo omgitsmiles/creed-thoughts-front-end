@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import ClearIcon from '@mui/icons-material/Clear';
 import EditIcon from '@mui/icons-material/Edit';
 
-const Message = ({ post:{message, user, id}, handleDelete, setPosts }) => {
+const Message = ({ post, handleDelete, setPosts, posts }) => {
     const [onEdit, isOnEdit] = useState(false)
+    const {message, user, id} = post
     const [editPost, setEditPost] = useState("")
 
     function handleEditPost(e) {
@@ -17,8 +18,10 @@ const Message = ({ post:{message, user, id}, handleDelete, setPosts }) => {
             body: JSON.stringify(editedPost)
         })
         .then(r => r.json())
-        .then(data => setPosts(data))
-    }
+        .then(updatedPost => {
+            const updatePost = posts.map(post => post.id === editPost.id ? updatedPost : post)
+            setPosts(updatePost) 
+        })
 
     const edited = (
         <form onSubmit={handleEditPost}>
@@ -43,7 +46,6 @@ const Message = ({ post:{message, user, id}, handleDelete, setPosts }) => {
           edited
         )}
     </main>
-    <div></div>
     </div>
   )
 }

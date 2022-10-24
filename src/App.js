@@ -14,12 +14,19 @@ function App() {
     .then(setPosts)
   }, [])
 
-  function handleDelete(deletePost) {
-    const deleted = posts.filter(post => post.id !== deletePost)
-    fetch(`http://localhost:9292/posts/${deletePost}`, {
+
+// name delete post more specific?
+// deleted const is actually updated posts
+  function handleDelete(deletedPostID) {
+    const updatedPosts = posts.filter(post => post.id !== deletedPostID)
+    fetch(`http://localhost:9292/posts/${deletedPostID}`, {
       method: "DELETE"
     })
-    setPosts(deleted)
+    setPosts(updatedPosts)
+  }
+
+  function onHandleSubmit(creedPost) {
+    setPosts([...posts, creedPost])
   }
 
   return (
@@ -27,7 +34,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/home" element={<MessageContainer posts={posts} handleDelete={handleDelete} setPosts={setPosts}/>}/>
-        <Route path="/newpost" element={<NewPost posts={posts}/>}/>
+        <Route path="/newpost" element={<NewPost posts={posts} onHandleSubmit={onHandleSubmit}/>}/>
         <Route path="*" element={<h1>Took a wrong turn</h1>}/>
       </Routes>
     </div>
