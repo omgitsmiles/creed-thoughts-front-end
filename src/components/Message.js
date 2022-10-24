@@ -3,11 +3,13 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { Clear } from '@mui/icons-material';
 import EditIcon from '@mui/icons-material/Edit';
 
-const Message = ({ post }) => {
+const Message = ({ post:{message, user} }) => {
+
 
   return (
     <div>
-    <main className="postBorder">{post.message} <ClearIcon fontSize='small' onClick={() => console.log("Hi")}/> <EditIcon fontSize='small'/></main>
+    <main className="postBorder">{message} -{user.username}<ClearIcon fontSize='small' className="materialUI" onClick={() => console.log("Hi")}/> 
+    <EditIcon fontSize='small' className="materialUI"/></main>
     <div></div>
     </div>
   )
