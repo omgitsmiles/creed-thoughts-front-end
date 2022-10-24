@@ -99,8 +99,9 @@ nav {
   margin: auto;
 }
 
-.npHeader {
+.newPost {
+  text-align: center;
   margin: auto;
-  justify-content: center;
+  display: flex;
+  width: 50%;
 }
-

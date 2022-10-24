@@ -24,8 +24,7 @@ const NewPost = ({ posts:{ id } }) => {
   }
 
   return (
-    <>
-    <h1 className="npHeader">Creeds Secret Posts</h1>
+    <div className="newPost">
     <Box
     sx={{
       '& .MuiTextField-root': { m: 1, width: '75ch' },
@@ -46,14 +45,12 @@ const NewPost = ({ posts:{ id } }) => {
           onChange={(e) => setBlogPost(e.target.value)}
         />
         <br></br>
-        <Button className="postBtn" variant="contained" type="submit" endIcon={<SendIcon />} >
+        <Button className="postBtn" variant="contained secondary" type="submit" endIcon={<SendIcon />} >
         Post
       </Button>
       </form>
     </Box>
-      
-    
-    </>
+    </div>
   )
 }
 
