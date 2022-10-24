@@ -4,14 +4,23 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
 
-const NewPost = () => {
+const NewPost = ({ posts:{ id } }) => {
   const [blogPost, setBlogPost] = useState("")
 
-  const newPost = {message: blogPost}
 
   function handleSubmit(e){
     e.preventDefault()
-    
+    const newPost = {message: blogPost}
+    fetch(`http://localhost:9292/posts/${id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(newPost)
+        })
+        .then(r => r.json())
+        .then(data => console.log(data))
+        setBlogPost("")
   }
 
   return (

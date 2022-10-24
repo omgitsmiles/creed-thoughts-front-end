@@ -27,7 +27,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/home" element={<MessageContainer posts={posts} handleDelete={handleDelete}/>}/>
-        <Route path="/newpost" element={<NewPost/>}/>
+        <Route path="/newpost" element={<NewPost posts={posts}/>}/>
         <Route path="*" element={<h1>Took a wrong turn</h1>}/>
       </Routes>
     </div>
