@@ -19,9 +19,11 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
         })
         .then(r => r.json())
         .then(updatedPost => {
-            const updatePost = posts.map(post => post.id === editPost.id ? updatedPost : post)
+            console.log(editedPost.id)
+            const updatePost = posts.map(post => post.id === id ? updatedPost : post)
             setPosts(updatePost) 
         })
+    }
 
     const edited = (
         <form onSubmit={handleEditPost}>
