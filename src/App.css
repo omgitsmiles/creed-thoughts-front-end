@@ -82,8 +82,9 @@ nav {
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.materialUI {
+.editPosts {
  display: flex;
+ margin: auto;
 }
 
 .blogPost {
@@ -97,3 +98,4 @@ nav {
   justify-content: center;
   margin: auto;
 }
+

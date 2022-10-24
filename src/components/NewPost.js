@@ -1,41 +1,44 @@
 import React, { useState } from 'react'
 import Box from '@mui/material/Box';
-import Fab from '@mui/material/Fab';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
 
 const NewPost = () => {
   const [blogPost, setBlogPost] = useState("")
 
+  const newPost = {message: blogPost}
+
   function handleSubmit(e){
     e.preventDefault()
-    console.log(blogPost)
   }
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form>
     <Box
     sx={{
-      '& .MuiTextField-root': { m: 1, width: '25ch' },
+      '& .MuiTextField-root': { m: 1, width: '75ch' },
     }}
     noValidate
     autoComplete="off"
     >
       <br></br>
       <br></br>
+    
     <TextField 
           className="blogPost"
           id="outlined-multiline-static"
           label="Post"
           multiline
           rows={10}
-          defaultValue={blogPost}
+          value={blogPost}
           onChange={(e) => setBlogPost(e.target.value)}
         />
     </Box>
-    <Fab variant="extended" color="primary" aria-label="add" className="postBtn">
+      <Button className="postBtn" variant="contained" endIcon={<SendIcon />} onClick={(e) => handleSubmit(e)}>
         Post
-    </Fab>
+      </Button>
     </form>
     </>
   )
