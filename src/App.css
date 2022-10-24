@@ -85,3 +85,15 @@ nav {
 .materialUI {
  display: flex;
 }
+
+.blogPost {
+  justify-content: center;
+  position: fixed;
+  margin: auto;
+  background-color: white;
+}
+
+.postBtn {
+  justify-content: center;
+  margin: auto;
+}
