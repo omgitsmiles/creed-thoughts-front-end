@@ -2,17 +2,31 @@ import React, { useState } from 'react'
 import ClearIcon from '@mui/icons-material/Clear';
 import EditIcon from '@mui/icons-material/Edit';
 
-const Message = ({ post:{message, user, id}, handleDelete }) => {
+const Message = ({ post:{message, user, id}, handleDelete, setPosts }) => {
     const [onEdit, isOnEdit] = useState(false)
+    const [editPost, setEditPost] = useState("")
 
+    function handleEditPost(e) {
+        e.preventDefault()
+        const editedPost = {message: editPost}
+        fetch(`http://localhost:9292/posts/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(editedPost)
+        })
+        .then(r => r.json())
+        .then(data => setPosts(data))
+    }
 
-    const editForm = (
-        <form>
+    const edited = (
+        <form onSubmit={handleEditPost}>
           <input
             name="content"
             type="text"
-            // value={editInputValue.content}
-            // onChange={handleEditChange}
+            value={editPost}
+            onChange={(e) => setEditPost(e.target.value)}
           />
           <input type="submit" />
         </form>
@@ -26,7 +40,7 @@ const Message = ({ post:{message, user, id}, handleDelete }) => {
     {!onEdit ? (
           null
         ) : (
-          editForm
+          edited
         )}
     </main>
     <div></div>

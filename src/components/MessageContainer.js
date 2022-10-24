@@ -1,10 +1,10 @@
 import React from 'react'
 import Message from './Message'
 
-const MessageContainer = ({ posts, handleDelete }) => {
+const MessageContainer = ({ posts, handleDelete, setPosts }) => {
 
     const renderPosts = posts.map(post => (
-        <Message key={post.id} post={post} handleDelete={handleDelete}/>
+        <Message key={post.id} post={post} handleDelete={handleDelete} setPosts={setPosts}/>
     ))
 
   return (

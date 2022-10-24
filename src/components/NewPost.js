@@ -25,6 +25,7 @@ const NewPost = ({ posts:{ id } }) => {
 
   return (
     <>
+    <h1 className="npHeader">Creeds Secret Posts</h1>
     <Box
     sx={{
       '& .MuiTextField-root': { m: 1, width: '75ch' },
