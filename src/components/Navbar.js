@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <div>
         <nav className="navHeader">
-        www.creedthoughts.gov.www\creedthoughts
+        <NavLink to={"/home"}>www.creedthoughts.gov.www\creedthoughts</NavLink>
+        <NavLink to={"/newpost"}><span className="navOption">Add Post</span></NavLink>
         </nav>
     </div>
   )

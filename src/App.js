@@ -6,7 +6,7 @@ import MessageContainer from './components/MessageContainer';
 import NewPost from './components/NewPost';
 
 function App() {
-  const [posts, setPosts] = useState()
+  const [posts, setPosts] = useState([])
 
   useEffect(()=> {
     fetch(`http://localhost:9292/posts`)
@@ -18,7 +18,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/home" element={<MessageContainer />}/>
+        <Route exact path="/home" element={<MessageContainer posts={posts}/>}/>
         <Route path="/newpost" element={<NewPost/>}/>
         <Route path="*" element={<h1>Took a wrong turn</h1>}/>
       </Routes>

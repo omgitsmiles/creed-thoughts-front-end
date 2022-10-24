@@ -1,8 +1,14 @@
 import React from 'react'
+import Message from './Message'
 
-const MessageContainer = () => {
+const MessageContainer = ({ posts }) => {
+
+    const renderPosts = posts.map(post => (
+        <Message key={post.id} post={post} />
+    ))
+
   return (
-    <div>MessageContainer</div>
+    <div>{renderPosts}</div>
   )
 }
 
