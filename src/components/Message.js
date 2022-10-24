@@ -39,7 +39,8 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
 
   return (
     <div>
-    <main className="postBorder">{message} -{user.username}
+    <main className="postBorder"> <h3>October 24, 2022</h3>
+    {message} -{user.username}
     <ClearIcon fontSize='small' className="editPosts" onClick={() => handleDelete(id)}/> 
     <EditIcon fontSize='small' className="editPosts" onClick={() => isOnEdit(onEdit => !onEdit)}/>
     {!onEdit ? (
