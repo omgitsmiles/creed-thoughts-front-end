@@ -11,11 +11,11 @@ const NewPost = () => {
 
   function handleSubmit(e){
     e.preventDefault()
+    
   }
 
   return (
     <>
-    <form>
     <Box
     sx={{
       '& .MuiTextField-root': { m: 1, width: '75ch' },
@@ -25,7 +25,7 @@ const NewPost = () => {
     >
       <br></br>
       <br></br>
-    
+    <form onSubmit={(e) => handleSubmit(e)}>
     <TextField 
           className="blogPost"
           id="outlined-multiline-static"
@@ -35,11 +35,14 @@ const NewPost = () => {
           value={blogPost}
           onChange={(e) => setBlogPost(e.target.value)}
         />
-    </Box>
-      <Button className="postBtn" variant="contained" endIcon={<SendIcon />} onClick={(e) => handleSubmit(e)}>
+        <br></br>
+        <Button className="postBtn" variant="contained" type="submit" endIcon={<SendIcon />} >
         Post
       </Button>
-    </form>
+      </form>
+    </Box>
+      
+    
     </>
   )
 }
