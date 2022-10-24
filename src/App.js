@@ -14,11 +14,16 @@ function App() {
     .then(setPosts)
   }, [])
 
+  function handleDelete(deletePost) {
+    const deleted = posts.filter(post => post.id !== deletePost)
+    setPosts(deleted)
+  }
+
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route exact path="/home" element={<MessageContainer posts={posts}/>}/>
+        <Route exact path="/home" element={<MessageContainer posts={posts} handleDelete={handleDelete}/>}/>
         <Route path="/newpost" element={<NewPost/>}/>
         <Route path="*" element={<h1>Took a wrong turn</h1>}/>
       </Routes>
