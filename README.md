@@ -1,6 +1,6 @@
 # Creed Thoughts Front End
 
-![Creed](https://github.com/omgitsmiles/mockbuster/blob/main/mockbuster.PNG)
+![Creed](https://github.com/omgitsmiles/creed-thoughts-front-end/blob/main/Creed.png)
 
 ## Built with
 
