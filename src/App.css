@@ -106,3 +106,14 @@ nav {
   display: flex;
   width: 50%;
 }
+
+.postHeader {
+  text-align: center;
+  justify-content: center;
+}
+
+.comboBox {
+  justify-content: center;
+  background-color: white;
+  margin: auto;
+}
