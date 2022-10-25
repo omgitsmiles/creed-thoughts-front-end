@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const NewPost = ({ posts, onHandleSubmit }) => {
   const [blogPost, setBlogPost] = useState("")
   const [users, setUsers] = useState([])
-  const [formInput, setFormInput] = useState("")
+  const [selector, setSelector] = useState("")
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -20,8 +20,7 @@ const NewPost = ({ posts, onHandleSubmit }) => {
   
   function handleSubmit(e){
     e.preventDefault()
-    const newPost = {username: formInput, message: blogPost}
-    console.log(newPost)
+    const newPost = {username: selector, message: blogPost}
     fetch("http://localhost:9292/posts", {
             method: "POST",
             headers: {
@@ -36,20 +35,20 @@ const NewPost = ({ posts, onHandleSubmit }) => {
         navigate("/home")
   }
 
-
   const renderUsers = users.map(user => user.username)
+
   return (
     <>
     <h1 className="postHeader">Write your post here Creed - Ryan</h1>
     <Autocomplete
-    className="comboBox"
-      disablePortal
-      id="combo-box-demo"
-      options={renderUsers}
-      sx={{ width: 300 }}
-      onSelect={(e) => setFormInput(e.target.value)}
-      renderInput={(params) => <TextField {...params} label="Who's Posting?" />}
-    />
+        className="comboBox"
+        id="free-solo-demo"
+        freeSolo
+        sx={{ width: 300 }}
+        options={renderUsers}
+        onSelect={(e) => setSelector(e.target.value)}
+        renderInput={(params) => <TextField {...params} label="Who's Posting" />}
+      />
     <div className="newPost">
     <Box
     sx={{
@@ -60,7 +59,7 @@ const NewPost = ({ posts, onHandleSubmit }) => {
     >
       <br></br>
       <br></br>
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={handleSubmit}>
     <TextField 
           className="blogPost"
           id="outlined-multiline-static"

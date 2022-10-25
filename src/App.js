@@ -17,6 +17,7 @@ function App() {
 
 // name delete post more specific?
 // deleted const is actually updated posts
+
   function handleDelete(deletedPostID) {
     const updatedPosts = posts.filter(post => post.id !== deletedPostID)
     fetch(`http://localhost:9292/posts/${deletedPostID}`, {

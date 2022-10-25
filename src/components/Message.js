@@ -5,7 +5,6 @@ import EditIcon from '@mui/icons-material/Edit';
 const Message = ({ post, handleDelete, setPosts, posts }) => {
     const [onEdit, isOnEdit] = useState(false) 
     const [editPost, setEditPost] = useState("")
-    const [open, setOpen] = useState(false)
     const {message, user, id, created_at} = post
 
     
