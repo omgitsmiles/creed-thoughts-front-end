@@ -8,6 +8,9 @@
 - Material UI
 - Sinatra, ActiveRecord on backend
 
+## Backend
+[Repo to backend](https://github.com/omgitsmiles/creed-thoughts-back-end)
+
 ### Get started
 
 Runs the app in the development mode.
