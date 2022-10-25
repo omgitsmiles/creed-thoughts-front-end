@@ -20,7 +20,7 @@ You may also see any lint errors in the console.
 
 From the popular show The Office, we take the character Creed Bratton and replicate his Blog for the user.
 
-![Homepage](https://github.com/omgitsmiles/mockbuster/blob/main/homepage.png)
+![Homepage](https://github.com/omgitsmiles/creed-thoughts-front-end/blob/main/CreedThoughts.jpg)
 
 ### User Experience
 
