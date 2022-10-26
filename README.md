@@ -13,11 +13,11 @@
 
 ### Get started
 
-Runs the app in the development mode.
-Along with npm start, the db.json server can be run with terminal command npm run server
-
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+- Clone back & [frontend](https://github.com/omgitsmiles/creed-thoughts-front-end)
+- Run Bundle install in terminal
+- Run rake server to start backend server
+- Run npm install seperate terminal for frontend
+- Run npm start to start frontend server
 
 ### About Creed thoughts
 
