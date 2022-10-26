@@ -13,7 +13,7 @@
 
 ### Get started
 
-- Clone back & [frontend](https://github.com/omgitsmiles/creed-thoughts-front-end)
+- Clone back & [backend](https://github.com/omgitsmiles/creed-thoughts-back-end)
 - Run Bundle install in terminal
 - Run rake server to start backend server
 - Run npm install seperate terminal for frontend
