@@ -34,7 +34,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route exact path="/home" element={<MessageContainer posts={posts} handleDelete={handleDelete} setPosts={setPosts}/>}/>
+        <Route path="/home" element={<MessageContainer posts={posts} handleDelete={handleDelete} setPosts={setPosts}/>}/>
         <Route path="/newpost" element={<NewPost posts={posts} onHandleSubmit={onHandleSubmit}/>}/>
         <Route path="*" element={<h1>Took a wrong turn</h1>}/>
       </Routes>

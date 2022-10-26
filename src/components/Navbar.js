@@ -10,7 +10,7 @@ const Navbar = () => {
         <Stack>
         <nav className="navHeader">
         <NavLink to={"/home"}>www.creedthoughts.gov.www\creedthoughts</NavLink>
-        <Link to={"/newpost"}><span className="navOption"><Avatar alt="CB" src={Creed} /></span></Link>
+        <Link to={"/newpost"}><span className="navOption"><Avatar alt="CB" src={Creed}/></span></Link>
         </nav>
         </Stack>
     </div>

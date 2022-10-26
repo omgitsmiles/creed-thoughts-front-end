@@ -10,7 +10,8 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
     
     function handleEditPost(e) {
         e.preventDefault()
-        const editedPost = {message: editPost}
+        const editedPost = {message: editPost, updated_at: Date()}
+        console.log(editedPost)
         fetch(`http://localhost:9292/posts/${id}`, {
             method: "PATCH",
             headers: {
@@ -35,11 +36,11 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
           />
           <input type="submit" />
         </form>
-      );
+      )
 
   return (
     <div>
-    <main className="postBorder"> <h3>{created_at}</h3>
+    <main className="postBorder"> <h3>{created_at.slice(0, 10)}</h3>
     {message} -{user.username}
     <ClearIcon fontSize='small' className="editPosts" onClick={() => handleDelete(id)}/> 
     <EditIcon fontSize='small' className="editPosts" onClick={() => isOnEdit(onEdit => !onEdit)}/>

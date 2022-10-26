@@ -8,7 +8,9 @@ const MessageContainer = ({ posts, handleDelete, setPosts }) => {
     ))
 
   return (
-    <div>{renderPosts}</div>
+    <div>
+    {renderPosts}
+    </div>
   )
 }
 
