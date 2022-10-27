@@ -33,12 +33,12 @@ const NewPost = ({ posts, onHandleSubmit }) => {
     })
     .then(r => r.json())
     .then(newU => setUsers([...users, newU]))
+    alert("New User Added")
   }
   
 
   function handleSubmit(e){
     e.preventDefault()
-    
     const newPost = {username: selector, message: blogPost}
     fetch("http://localhost:9292/posts", {
             method: "POST",
@@ -48,7 +48,9 @@ const NewPost = ({ posts, onHandleSubmit }) => {
             body: JSON.stringify(newPost)
         })
         .then(r => r.json())
-        .then(addedPost => onHandleSubmit(addedPost))
+        .then(addedPost => {
+          onHandleSubmit(addedPost)
+        })
         setBlogPost("")
         alert("Posted your blog, Creed")
         navigate("/home")
