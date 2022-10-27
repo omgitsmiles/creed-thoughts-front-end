@@ -60,6 +60,7 @@ const NewPost = ({ posts, onHandleSubmit }) => {
     <>
     <h1 className="postHeader">Write your post here Creed - Ryan</h1>
      <TextField  className="comboBox" id="outlined-basic" label="New User?" variant="outlined" onChange={(e) => setNewUser(e.target.value)}/>
+     <br></br>
      <Button variant="contained secondary" onClick={handleNewUser}>Add new user</Button>
     <Autocomplete
         className="comboBox"
