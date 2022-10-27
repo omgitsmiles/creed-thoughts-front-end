@@ -71,7 +71,7 @@ nav {
 .postBorder {
   text-align: center;
   margin: auto;
-  border: solid black 2px;
+  border: solid black 1px;
   display: flex;
   width: 50%;
   height: 80%;
@@ -116,4 +116,11 @@ nav {
   justify-content: center;
   background-color: white;
   margin: auto;
+}
+
+.newUser {
+  justify-content: center;
+  background-color: white;
+  margin: auto;
+  display: flex;
 }

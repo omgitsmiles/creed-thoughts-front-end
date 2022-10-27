@@ -10,7 +10,9 @@ const NewPost = ({ posts, onHandleSubmit }) => {
   const [blogPost, setBlogPost] = useState("")
   const [users, setUsers] = useState([])
   const [selector, setSelector] = useState("")
+  const [newUser, setNewUser] = useState("")
   let navigate = useNavigate();
+
 
   useEffect(() => {
     fetch("http://localhost:9292/users")
@@ -18,8 +20,25 @@ const NewPost = ({ posts, onHandleSubmit }) => {
     .then(setUsers)
   }, [])
   
+
+  function handleNewUser(e){
+    e.preventDefault()
+    const addNewUser = {username: newUser}
+    fetch("http://localhost:9292/users", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify(addNewUser)
+    })
+    .then(r => r.json())
+    .then(newU => setUsers([...users, newU]))
+  }
+  
+
   function handleSubmit(e){
     e.preventDefault()
+    
     const newPost = {username: selector, message: blogPost}
     fetch("http://localhost:9292/posts", {
             method: "POST",
@@ -33,13 +52,15 @@ const NewPost = ({ posts, onHandleSubmit }) => {
         setBlogPost("")
         alert("Posted your blog, Creed")
         navigate("/home")
-  }
+    }
 
   const renderUsers = users.map(user => user.username)
 
   return (
     <>
     <h1 className="postHeader">Write your post here Creed - Ryan</h1>
+     <TextField  className="comboBox" id="outlined-basic" label="New User?" variant="outlined" onChange={(e) => setNewUser(e.target.value)}/>
+     <Button variant="contained secondary" onClick={handleNewUser}>Add new user</Button>
     <Autocomplete
         className="comboBox"
         id="free-solo-demo"
@@ -49,6 +70,7 @@ const NewPost = ({ posts, onHandleSubmit }) => {
         onSelect={(e) => setSelector(e.target.value)}
         renderInput={(params) => <TextField {...params} label="Who's Posting" />}
       />
+     
     <div className="newPost">
     <Box
     sx={{

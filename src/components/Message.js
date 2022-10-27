@@ -10,8 +10,7 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
     
     function handleEditPost(e) {
         e.preventDefault()
-        const editedPost = {message: editPost, updated_at: Date()}
-        console.log(editedPost)
+        const editedPost = {message: editPost}
         fetch(`http://localhost:9292/posts/${id}`, {
             method: "PATCH",
             headers: {
