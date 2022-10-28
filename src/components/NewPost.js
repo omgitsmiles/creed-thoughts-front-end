@@ -6,20 +6,14 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from 'react-router-dom'; 
 
-const NewPost = ({ posts, onHandleSubmit }) => {
+const NewPost = ({ posts, onHandleSubmit, users, onHandleNewUserSubmit }) => {
   const [blogPost, setBlogPost] = useState("")
-  const [users, setUsers] = useState([])
   const [selector, setSelector] = useState("")
   const [newUser, setNewUser] = useState("")
   let navigate = useNavigate();
 
-
-  useEffect(() => {
-    fetch("http://localhost:9292/users")
-    .then(r => r.json())
-    .then(setUsers)
-  }, [])
-  
+// move to app, send down to props
+// added the post on the body of the edit 
 
   function handleNewUser(e){
     e.preventDefault()
@@ -32,7 +26,7 @@ const NewPost = ({ posts, onHandleSubmit }) => {
       body: JSON.stringify(addNewUser)
     })
     .then(r => r.json())
-    .then(newU => setUsers([...users, newU]))
+    .then(newU => onHandleNewUserSubmit(newU))
     alert("New User Added")
   }
   
@@ -48,9 +42,7 @@ const NewPost = ({ posts, onHandleSubmit }) => {
             body: JSON.stringify(newPost)
         })
         .then(r => r.json())
-        .then(addedPost => {
-          onHandleSubmit(addedPost)
-        })
+        .then(addedPost => onHandleSubmit(addedPost))
         setBlogPost("")
         alert("Posted your blog, Creed")
         navigate("/home")
