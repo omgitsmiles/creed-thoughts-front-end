@@ -124,3 +124,7 @@ nav {
   margin: auto;
   display: flex;
 }
+
+.editPost {
+  width: 50ch;
+}

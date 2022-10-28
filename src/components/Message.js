@@ -28,9 +28,10 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
     const edited = (
         <form onSubmit={handleEditPost}>
           <input
+            className="editPost"
             name="content"
             type="text"
-            value={editPost}
+            defaultValue={message}
             onChange={(e) => setEditPost(e.target.value)}
           />
           <input type="submit" />
@@ -43,10 +44,10 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
     {message} -{user.username}
     <ClearIcon fontSize='small' className="editPosts" onClick={() => handleDelete(id)}/> 
     <EditIcon fontSize='small' className="editPosts" onClick={() => isOnEdit(onEdit => !onEdit)}/>
-    {!onEdit ? (
-          null
+    {onEdit ? (
+        edited
         ) : (
-          edited
+        null
         )}
     </main>
     </div>
