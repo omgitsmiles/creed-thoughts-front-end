@@ -126,5 +126,12 @@ nav {
 }
 
 .editPost {
-  width: 50ch;
+  width: 
+  50ch;
+}
+
+.newClassPost {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

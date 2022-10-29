@@ -4,13 +4,14 @@ import EditIcon from '@mui/icons-material/Edit';
 
 const Message = ({ post, handleDelete, setPosts, posts }) => {
     const [onEdit, isOnEdit] = useState(false) 
+    const [isEdited, setIsEdited] = useState(false)
     const [editPost, setEditPost] = useState("")
-    const {message, user, id, created_at} = post
+    const {message, user, id, created_at, updated_at} = post
 
     
     function handleEditPost(e) {
         e.preventDefault()
-        const editedPost = {message: editPost}
+        const editedPost = {message: editPost, updated_at: Date()}
         fetch(`http://localhost:9292/posts/${id}`, {
             method: "PATCH",
             headers: {
@@ -21,7 +22,8 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
         .then(r => r.json())
         .then(updatedPost => {
             const updatePost = posts.map(post => post.id === id ? updatedPost : post)
-            setPosts(updatePost) 
+            setPosts(updatePost)
+            setIsEdited(true) 
         })
     }
 
@@ -40,7 +42,7 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
 
   return (
     <div>
-    <main className="postBorder"> <h3>{created_at.slice(0, 10)}</h3>
+    <main className="postBorder"> <h3>{!isEdited ? created_at.slice(0, 10) : updated_at.slice(0, 10)}</h3>
     {message} -{user.username}
     <ClearIcon fontSize='small' className="editPosts" onClick={() => handleDelete(id)}/> 
     <EditIcon fontSize='small' className="editPosts" onClick={() => isOnEdit(onEdit => !onEdit)}/>

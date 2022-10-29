@@ -12,12 +12,10 @@ const NewPost = ({ posts, onHandleSubmit, users, onHandleNewUserSubmit }) => {
   const [newUser, setNewUser] = useState("")
   let navigate = useNavigate();
 
-// move to app, send down to props
-// added the post on the body of the edit 
-
   function handleNewUser(e){
     e.preventDefault()
     const addNewUser = {username: newUser}
+    if (newUser !== "") {
     fetch("http://localhost:9292/users", {
       method: "POST",
       headers: {
@@ -28,6 +26,9 @@ const NewPost = ({ posts, onHandleSubmit, users, onHandleNewUserSubmit }) => {
     .then(r => r.json())
     .then(newU => onHandleNewUserSubmit(newU))
     alert("New User Added")
+    } else {
+      alert("Put your name in!")
+    }
   }
   
 
@@ -53,9 +54,15 @@ const NewPost = ({ posts, onHandleSubmit, users, onHandleNewUserSubmit }) => {
   return (
     <>
     <h1 className="postHeader">Write your post here Creed - Ryan</h1>
-     <TextField  className="comboBox" id="outlined-basic" label="New User?" variant="outlined" onChange={(e) => setNewUser(e.target.value)}/>
-     <br></br>
-     <Button variant="contained secondary" onClick={handleNewUser}>Add new user</Button>
+    <div>
+    <form className="newClassPost">
+      <TextField className="newUser" id="outlined-basic" label="New User?" variant="outlined" onChange={(e) => setNewUser(e.target.value)}/>
+      <br></br>
+      <Button variant="contained secondary" onClick={handleNewUser}>Add new user</Button>
+      <br></br>
+      <br></br>
+    </form>
+    </div>
     <Autocomplete
         className="comboBox"
         id="free-solo-demo"
