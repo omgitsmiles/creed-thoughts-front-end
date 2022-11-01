@@ -10,7 +10,7 @@ function App() {
   const [users, setUsers] = useState([])
 
   useEffect(()=> {
-    fetch(`http://localhost:9292/posts`)
+    fetch("http://localhost:9292/posts")
     .then(r => r.json())
     .then(setPosts)
   }, [])
@@ -22,10 +22,10 @@ function App() {
   }, [])
 
   function handleDelete(deletedPostID) {
-    const updatedPosts = posts.filter(post => post.id !== deletedPostID)
     fetch(`http://localhost:9292/posts/${deletedPostID}`, {
       method: "DELETE"
     })
+    const updatedPosts = posts.filter(post => post.id !== deletedPostID)
     setPosts(updatedPosts)
   }
 

@@ -36,7 +36,7 @@ const Message = ({ post, handleDelete, setPosts, posts }) => {
             defaultValue={message}
             onChange={(e) => setEditPost(e.target.value)}
           />
-          <input type="submit" />
+          <input type="submit"/>
         </form>
       )
 
